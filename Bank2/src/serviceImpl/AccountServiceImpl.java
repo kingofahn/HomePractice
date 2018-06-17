@@ -9,12 +9,14 @@ import domain.MinusAccount;
 import service.AccountService;
 
 public class AccountServiceImpl implements AccountService {
-	Account [] list;
+	Account[] list;
 	int count;
-	public AccountServiceImpl (){
+
+	public AccountServiceImpl() {
 		list = new Account[10000];
 		count = 0;
 	}
+
 	@Override
 	public Account createAccount(String name, String uid, String pass) {
 		Account account = new Account();
@@ -29,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public MinusAccount createMinusAccount(String name, String uid, String pass) {
-		MinusAccount minusAccount=new MinusAccount();
+		MinusAccount minusAccount = new MinusAccount();
 		minusAccount.setName(name);
 		minusAccount.setUid(uid);
 		minusAccount.setPass(pass);
@@ -41,7 +43,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public void addList(Account account) {
-		list[count++]=account;
+		list[count++] = account;
 	}
 
 	@Override
@@ -64,8 +66,6 @@ public class AccountServiceImpl implements AccountService {
 		return String.valueOf((int) (Math.random() * (end + 1)) + start);
 	}
 
-	
-	
 	@Override
 	public String createDate() {
 		return new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date());
@@ -73,10 +73,10 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public String showResult(Account[] list) {
-		String result="";
+		String result = "";
 		list = list();
-		for(int i=0; i<count; i++) {
-			result+=toString(list[i])+"\n";
+		for (int i = 0; i < count; i++) {
+			result += toString(list[i]) + "\n";
 		}
 		return result;
 	}

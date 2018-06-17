@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import serviceImpl.*;
 import domain.*;
 import service.AccountService;
+
 public class AccountController {
 	enum AccountButt {
 		EXIT, ACCOUNT, MINUS_ACCOUNT, LIST
@@ -20,19 +21,15 @@ public class AccountController {
 			case EXIT:
 				return;
 			case ACCOUNT:
-				service.addList(service.createAccount(
-						JOptionPane.showInputDialog("name?"), 
-						JOptionPane.showInputDialog("uid??"), 
-						JOptionPane.showInputDialog("pass?")));
+				service.addList(service.createAccount(JOptionPane.showInputDialog("name?"),
+						JOptionPane.showInputDialog("uid??"), JOptionPane.showInputDialog("pass?")));
 				break;
 			case MINUS_ACCOUNT:
-				service.addList(service.createMinusAccount(
-						JOptionPane.showInputDialog("name?"), 
-						JOptionPane.showInputDialog("uid?"), 
-						JOptionPane.showInputDialog("pass?")));
+				service.addList(service.createMinusAccount(JOptionPane.showInputDialog("name?"),
+						JOptionPane.showInputDialog("uid?"), JOptionPane.showInputDialog("pass?")));
 				break;
 			case LIST:
-				JOptionPane.showMessageDialog(null,service.showResult(service.list()));
+				JOptionPane.showMessageDialog(null, service.showResult(service.list()));
 				break;
 			}
 		}
